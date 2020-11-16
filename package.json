@@ -20,6 +20,7 @@
     "*.d.ts"
   ],
   "scripts": {
+    "prepare": "npm run build",
     "build": "tsc"
   },
   "dependencies": {
