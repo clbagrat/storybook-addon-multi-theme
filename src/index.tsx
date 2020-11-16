@@ -43,7 +43,7 @@ export const withMultiTheme = makeDecorator({
     return <div style={containerStyles}>
       {filteredList.length === 0 && `Please, select a theme`}
       {filteredList.map((themeObject) => (
-        <div key={themeObject.name} style={{backgroundColor: themeObject.backgroundColor, ...itemStyles}}>
+        <div key={themeObject.name} className={themeObject.class} style={{backgroundColor: themeObject.backgroundColor, ...itemStyles}}>
           {getStory(context)}
         </div>
       ))}
