@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-multi-theme",
-  "version": "0.0.1-rc.1",
+  "version": "0.0.0",
   "description": "Multiple themes simultaneously",
   "keywords": [
     "addon",
@@ -8,7 +8,11 @@
     "theme"
   ],
   "license": "MIT",
-  "main": "dist/register.js",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/criol/storybook-addon-multi-theme.git"
+  },
   "files": [
     "dist/**/*",
     "README.md",
@@ -45,6 +49,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "38bb07161a72720766a1e9b2c9a1661bd3d819b0"
+  }
 }
