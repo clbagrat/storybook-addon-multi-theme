@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-multi-theme",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Multiple themes simultaneously",
   "keywords": [
     "addon",
