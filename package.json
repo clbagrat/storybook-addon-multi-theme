@@ -1,0 +1,50 @@
+{
+  "name": "storybook-addon-multi-theme",
+  "version": "0.0.1-rc.1",
+  "description": "Multiple themes simultaneously",
+  "keywords": [
+    "addon",
+    "storybook",
+    "theme"
+  ],
+  "license": "MIT",
+  "main": "dist/register.js",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "*.js",
+    "*.d.ts"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@storybook/addons": "^6.0.28",
+    "@storybook/api": "^6.0.28",
+    "@storybook/components": "^6.0.28",
+    "@storybook/theming": "^6.0.28",
+    "@types/node": "^14.14.7",
+    "core-js": "^3.0.1",
+    "ts-dedent": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.10",
+    "typescript": "^3.9.3"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "38bb07161a72720766a1e9b2c9a1661bd3d819b0"
+}
