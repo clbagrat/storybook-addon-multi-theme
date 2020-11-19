@@ -6,21 +6,13 @@ import { useSelectedThemes } from './useSelectedThemes';
 
 const channel = addons.getChannel();
 
-const containerStyles: Record<string, string> = {
-  display: `flex`,
-  width: `100%`,
-  height: `100%`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`
-}
-
 const itemStyles: Record<string, string> = {
   display: `flex`,
   flex: `1`,
   alignItems: `center`,
   justifyContent: `center`,
-  overflow: `auto`
+  overflow: `auto`,
+  padding: `20px`
 }
 
 
@@ -40,13 +32,36 @@ export const withMultiTheme = makeDecorator({
       }
     }, [setThemes])
 
-    return <div style={containerStyles}>
-      {filteredList.length === 0 && `Please, select a theme`}
-      {filteredList.map((themeObject) => (
-        <div key={themeObject.name} className={themeObject.class} style={{backgroundColor: themeObject.backgroundColor, ...itemStyles}}>
-          {getStory(context)}
+    return (
+      <>
+        {/* yes yes this is a css inside jsx. don't want to add a bundler just for this small thing */}
+        <style>
+          {`
+            .sb_multi_theme_container {
+              display: flex;
+              width: 100vw;
+              height: 100vh;
+              position: relative;
+            }
+            .sb-main-padded .sb_multi_theme_container {
+              width: calc(100vw - 2rem);
+              height: calc(100vh - 2rem);
+            }
+            .sbdocs .sb_multi_theme_container {
+              width: auto;
+              height: auto
+            }
+          `}
+        </style>
+        <div className="sb_multi_theme_container">
+          {filteredList.length === 0 && `Please, select a theme`}
+          {filteredList.map((themeObject) => (
+            <div key={themeObject.name} className={themeObject.class} style={{backgroundColor: themeObject.backgroundColor, ...itemStyles}}>
+              {getStory(context)}
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </>
+    )
   }
 })
