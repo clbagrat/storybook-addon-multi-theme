@@ -28,9 +28,7 @@
     "@storybook/api": "^6.0.28",
     "@storybook/components": "^6.0.28",
     "@storybook/theming": "^6.0.28",
-    "@types/node": "^14.14.7",
-    "core-js": "^3.0.1",
-    "ts-dedent": "^2.0.0"
+    "@types/node": "^14.14.7"
   },
   "devDependencies": {
     "@types/node": "^14.0.10",
