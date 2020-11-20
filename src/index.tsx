@@ -20,7 +20,7 @@ export const withMultiTheme = makeDecorator({
   name: ADDON_ID,
   parameterName: PARAM_NAME,
   wrapper: (getStory, context, { parameters } : { parameters: MultiThemeParams }) => {
-    const [themes, setThemes] = useSelectedThemes(parameters)
+    const [themes, setThemes] = useSelectedThemes(parameters, channel)
     const { list = [] } = parameters;
 
     const filteredList = list.filter(({name}) => themes.includes(name));

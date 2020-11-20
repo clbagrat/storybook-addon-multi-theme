@@ -1,9 +1,10 @@
+type Theme = {
+  name: string,
+  class: string,
+  iconColor: string,
+  backgroundColor: string,
+  selectedByDefault: true
+}
 type MultiThemeParams = {
-  list?: {
-    name: string,
-    class: string,
-    iconColor: string,
-    backgroundColor: string,
-    selectedByDefault: true
-  }[]
+  list?: Theme[]
 }
