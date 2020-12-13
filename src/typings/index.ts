@@ -6,5 +6,6 @@ type Theme = {
   selectedByDefault: true
 }
 type MultiThemeParams = {
-  list?: Theme[]
+  list?: Theme[],
+  disabled?: boolean
 }

@@ -21,8 +21,7 @@ export const withMultiTheme = makeDecorator({
   parameterName: PARAM_NAME,
   wrapper: (getStory, context, { parameters } : { parameters: MultiThemeParams }) => {
     const [themes, setThemes] = useSelectedThemes(parameters, channel)
-    const { list = [] } = parameters;
-
+    const { list = [], disabled } = parameters;
     const filteredList = list.filter(({name}) => themes.includes(name));
 
     useEffect(() => {
@@ -32,6 +31,7 @@ export const withMultiTheme = makeDecorator({
       }
     }, [setThemes])
 
+    if (disabled) return getStory(context);
     return (
       <>
         {/* yes yes this is a css inside jsx. don't want to add a bundler just for this small thing */}
