@@ -5,7 +5,9 @@
   "keywords": [
     "addon",
     "storybook",
-    "theme"
+    "theme",
+    "storybook-addon",
+    "style"
   ],
   "license": "MIT",
   "main": "dist/index.js",
