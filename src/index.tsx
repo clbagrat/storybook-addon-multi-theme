@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { makeDecorator, addons } from '@storybook/addons';
+import React, { useEffect, useState } from "react";
+import { makeDecorator, addons } from "@storybook/addons";
 
-import { PARAM_NAME, ADDON_ID, THEME_SET } from './constants';
-import { useSelectedThemes } from './useSelectedThemes';
+import { PARAM_NAME, ADDON_ID, THEME_SET } from "./constants";
+import { useSelectedThemes } from "./useSelectedThemes";
 
 const channel = addons.getChannel();
 
@@ -12,24 +12,27 @@ const itemStyles: Record<string, string> = {
   alignItems: `center`,
   justifyContent: `center`,
   overflow: `auto`,
-  padding: `20px`
-}
-
+  padding: `20px`,
+};
 
 export const withMultiTheme = makeDecorator({
   name: ADDON_ID,
   parameterName: PARAM_NAME,
-  wrapper: (getStory, context, { parameters } : { parameters: MultiThemeParams }) => {
-    const [themes, setThemes] = useSelectedThemes(parameters, channel)
+  wrapper: (
+    getStory,
+    context,
+    { parameters }: { parameters: MultiThemeParams }
+  ) => {
+    const [themes, setThemes] = useSelectedThemes(parameters, channel);
     const { list = [], disabled } = parameters;
-    const filteredList = list.filter(({name}) => themes.includes(name));
+    const filteredList = list.filter(({ name }) => themes.includes(name));
 
     useEffect(() => {
       channel.on(THEME_SET, setThemes);
       return () => {
         channel.off(THEME_SET, setThemes);
-      }
-    }, [setThemes])
+      };
+    }, [setThemes]);
 
     if (disabled) return getStory(context);
     return (
@@ -39,29 +42,36 @@ export const withMultiTheme = makeDecorator({
           {`
             .sb_multi_theme_container {
               display: flex;
-              width: 100vw;
-              height: 100vh;
+              max-width: 100vw;
+              min-height: 100vh;
               position: relative;
             }
             .sb-main-padded .sb_multi_theme_container {
-              width: calc(100vw - 2rem);
-              height: calc(100vh - 2rem);
+              max-width: calc(100vw - 2rem);
+              min-height: calc(100vh - 2rem);
             }
             .sbdocs .sb_multi_theme_container {
-              width: auto;
-              height: auto
+              max-width: auto;
+              min-height: auto
             }
           `}
         </style>
         <div className="sb_multi_theme_container">
           {filteredList.length === 0 && `Please, select a theme`}
           {filteredList.map((themeObject) => (
-            <div key={themeObject.name} className={themeObject.class} style={{backgroundColor: themeObject.backgroundColor, ...itemStyles}}>
+            <div
+              key={themeObject.name}
+              className={themeObject.class}
+              style={{
+                backgroundColor: themeObject.backgroundColor,
+                ...itemStyles,
+              }}
+            >
               {getStory(context)}
             </div>
           ))}
         </div>
       </>
-    )
-  }
-})
+    );
+  },
+});
