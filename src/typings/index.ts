@@ -3,8 +3,10 @@ type Theme = {
   class: string,
   iconColor: string,
   backgroundColor: string,
-  selectedByDefault: true
+  selectedByDefault: true,
+  wrapperComponent: ({children}: {children: React.ReactNode}) => React.ReactNode
 }
+
 type MultiThemeParams = {
   list?: Theme[],
   disabled?: boolean

@@ -25,22 +25,30 @@ module.exports = {
 
 ```js
 // .storybook/preview.js
+import { ThemeProvider } from 'emotion-theming';
+
 export const parameters = {
   multiTheme:
     {
       list: [
         {
           name: "Light",
-          class: "light-theme",
+          class: "light-theme", // this is handy if you set theme styles based on parent css class
           iconColor: "#fff",
           backgroundColor: `#fff`,
-          selectedByDefault: true
+          selectedByDefault: true,
+	  wrapperComponent: ({children}) => {
+	    return <ThemeProvider theme={light}> {children} </ThemeProvider>
+    	  }
         },
         {
           name: "Dark",
           class: "dark-theme",
           iconColor: "#1E2125",
-          backgroundColor: `#1E2125`
+          backgroundColor: `#1E2125`,
+	  wrapperComponent: ({children}) => {
+	    return <ThemeProvider theme={light}> {children} </ThemeProvider>
+    	  }
         }
       ]
     }

@@ -67,7 +67,8 @@ export const withMultiTheme = makeDecorator({
                 ...itemStyles,
               }}
             >
-              {getStory(context)}
+	      {themeObject.wrapperComponent && themeObject.wrapperComponent({children: getStory(context)})}
+              {!themeObject.wrapperComponent && getStory(context)}
             </div>
           ))}
         </div>
