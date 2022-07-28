@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-multi-theme",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Multiple themes simultaneously",
   "keywords": [
     "addon",
@@ -37,8 +37,8 @@
     "typescript": "^3.9.3"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
