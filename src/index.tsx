@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { CSSProperties, useEffect } from "react";
 import { makeDecorator, addons } from "@storybook/addons";
 
 import { PARAM_NAME, ADDON_ID, THEME_SET } from "./constants";
@@ -6,7 +6,7 @@ import { useSelectedThemes } from "./useSelectedThemes";
 
 const channel = addons.getChannel();
 
-const itemStyles: Record<string, string> = {
+const defaultItemStyles: CSSProperties = {
   display: `flex`,
   flex: `1`,
   alignItems: `center`,
@@ -64,7 +64,7 @@ export const withMultiTheme = makeDecorator({
               className={themeObject.class}
               style={{
                 backgroundColor: themeObject.backgroundColor,
-                ...itemStyles,
+                ...(themeObject.itemStyles || defaultItemStyles),
               }}
             >
 	      {themeObject.wrapperComponent && themeObject.wrapperComponent({children: getStory(context)})}
